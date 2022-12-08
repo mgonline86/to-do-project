@@ -1,6 +1,7 @@
 import express from 'express'
 import * as dotenv from 'dotenv'
 dotenv.config()
+import cors from 'cors'
 import mongoose  from 'mongoose'
 import todoRouter from './src/routes/TodoRoutes.js'
 
@@ -9,7 +10,7 @@ const PORT=process.env.PORT || 3000
 
 // middleware
 app.use(express.json())
-
+app.use(cors())
 
 app.use('/api',todoRouter)
 
